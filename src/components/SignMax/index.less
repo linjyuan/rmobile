@@ -1,0 +1,98 @@
+.signMaxStyles{
+  .signMaxmodal{
+    height: 100%;
+    min-height: 100% !important;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    box-sizing: border-box;
+    // background-color: #bbb;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    .adm-modal-content{
+      flex: 1;
+      max-height: max-content;
+      // background-color: aqua;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 51px;
+      overflow-y: hidden;
+      .signPreviewArea {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: space-around;
+        height: 30%;
+        // max-width: 100%;
+        // overflow-x: scroll;
+        // padding: 0 10px 0 10px;
+        box-sizing: border-box;
+        justify-content: space-around;
+        .defaultText {
+          width: fit-content;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #bbb;
+          // font-size: 1.6rem;
+          /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+          font-family: 'ZhengKai';
+          // text-align: center;
+          background-color: #e7e7e799;
+          border-radius: 0.15rem;
+        }
+      }
+      .signArea {
+        position: relative;
+        // top: 0;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .signatureBackground {
+          height: 100%;
+          width: 100%;
+          background-color: #e7e7e799;
+          border: 1px solid black;
+        }
+        .signatureCanvas {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: rgba(0, 0, 0, 0);
+          border: 1px solid rgba(0, 0, 0, 0);
+        }
+
+      }
+      .singhint {
+        text-align: center;
+        padding-top: 0.5rem;
+      }
+    }
+  }
+  .adm-center-popup-wrap{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh !important;
+    transform: translate(0,0);
+    &>div:first-child{
+      height: 100%;
+    }
+  }
+}
+
+@font-face {
+  font-family: 'ZhengKai';
+  // src: url(./zhengkai.ttf);
+}
+
+

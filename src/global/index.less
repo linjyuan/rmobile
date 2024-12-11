@@ -1,0 +1,27 @@
+@import url('./rmobile-default.less');
+
+html {
+  background-color: var(--adm-color-background-body);
+}
+
+body {
+  color: var(--rmobile-color-text);
+  font-size: var(--rmobile-font-size-main);
+  font-family: var(--rmobile-font-family);
+}
+a,button {
+  cursor: pointer;
+}
+a {
+  color: var(--rmobile-color-primary);
+  transition: opacity ease-in-out 0.2s;
+  &:active {
+    opacity: 0.8;
+  }
+}
+:root{
+  padding: 0;
+  border: 0;
+  outline: none;
+  list-style: none;
+}

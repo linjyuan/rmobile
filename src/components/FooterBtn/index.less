@@ -1,0 +1,81 @@
+
+  @classPrefix-footerBtn: ~'rmobile-footerBtn';
+// .@{classPrefix-footerBtn} {
+.footerViews {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 51px;
+  padding: 6px 15px;
+  background: #fff;
+  box-shadow: 0 -4px 10px 0 #ddd;
+  // margin-top: 51px;
+  box-sizing: border-box;
+  .btnItem {
+    flex: 1;
+    height: 40px;
+    margin-right: 8px;
+    color: #fff;
+    font-size: 16px;
+    line-height:40px;
+    text-align: center;
+    background: linear-gradient(90deg, #3bf 0%, #2d97fa 100%);
+    border-radius: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.other {
+      height: 40px;
+      color: #000;
+      background: #fff;
+      border: 1px solid #ddd;
+      // border-radius: 10px;
+      border-radius: 20px;
+    }
+
+    &.normal {
+      height:40px;
+      color: #0089ff;
+      background: #fff;
+      border: 1px solid #0089ff;
+      border-radius: 20px;
+    }
+
+    &.warning {
+      height: 40px;
+      background: #ffc53d;
+      border-radius: 20px;
+    }
+
+    &.danger {
+      height: 40px;
+      background: #ff4d4f;
+      border-radius: 20px;
+    }
+
+    &.negative {
+      height: 40px;
+      background: #ccc;
+      border-radius: 20px;
+    }
+
+    &.positive {
+      height: 40px;
+      background: #0089ff;
+      border-radius: 20px;
+    }
+
+    &.hide {
+      display: none;
+    }
+  }
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

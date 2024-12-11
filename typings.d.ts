@@ -1,0 +1,15 @@
+declare module '*.css';
+declare module '*.less';
+declare module '*.tsx';
+declare module '*.ts';
+declare module '*.js';
+declare module '*.jsx';
+declare module '*.svg';
+declare module '*.png';
+declare module '*.jpg';
+declare module '*.jpeg';
+declare module '*.gif';
+declare module '*.bmp';
+declare module '*.tiff';
+declare module '*.json';
+declare module 'nzh/cn';

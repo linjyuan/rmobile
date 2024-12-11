@@ -1,0 +1,77 @@
+.cardView {
+  position: relative;
+  display: flex;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+}
+.cardView.flexRow {
+  flex-direction: row;
+}
+.cardView.flexColumn {
+  flex-direction: column;
+}
+.cardView.hide {
+  display: none;
+}
+.cardView .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--rmobile-font-size-6);
+}
+.cardView .header .label {
+  max-width: 5rem;
+  color: #333;
+  font-weight: 600;
+  font-size: val(--rmobile-font-size-10);
+}
+.cardView .header .rightContent {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.cardView .header .rightContent .collapseBtn {
+  padding: 0 0.1rem 0 0.4rem;
+  font-weight: bold;
+  font-size: 0.32rem;
+}
+.cardView .cardBody {
+  margin: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.cardView .cardBody .listItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 14px;
+  color: #333;
+  font-size: 32px;
+  line-height: 48px;
+}
+.cardView .cardBody .listItem:first-child {
+  margin-top: 0;
+}
+.cardView .cardBody .listItem img {
+  width: 38px;
+  height: 38px;
+  margin-right: 16px;
+}
+.cardView .cardBody .listItemBold {
+  color: #000000;
+  font-weight: bold;
+  font-size: 36px;
+}
+.cardView .cardBody .listItemDisabled {
+  color: #888888;
+  font-size: 28px;
+}
+.cardView .footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 30px;
+}
+.cardView .footer :global .alita-capsule {
+  font-size: 24px;
+}

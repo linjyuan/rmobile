@@ -1,0 +1,97 @@
+.cardView {
+  position: relative;
+  display: flex;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+
+  &.flexRow {
+    flex-direction: row;
+  }
+
+  &.flexColumn {
+    flex-direction: column;
+  }
+
+  &.hide {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: space-between;
+    padding: var(--rmobile-font-size-6) ;
+    .label {
+      // margin: 30px 30px 10px 30px;
+      max-width: 5rem;
+      color: #333;
+      font-weight: 600;
+      font-size: val(--rmobile-font-size-10);
+    }
+    .rightContent {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      .collapseBtn {
+        padding: 0 0.1rem 0 0.4rem;
+        font-weight: bold;
+        font-size: 0.32rem;
+      }
+    }
+
+    .extra {
+      // position: absolute;
+      // right: 0;
+      // bottom: 0;
+      // width: 68px;
+    }
+  }
+
+  .cardBody {
+    margin: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+    .listItem {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 14px;
+      color: #333;
+      font-size: 32px;
+      line-height: 48px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      img {
+        width: 38px;
+        height: 38px;
+        margin-right: 16px;
+      }
+    }
+    .listItemBold {
+      color: rgba(0, 0, 0, 1);
+      font-weight: bold;
+      font-size: 36px;
+    }
+    .listItemDisabled {
+      color: rgba(136, 136, 136, 1);
+      font-size: 28px;
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 30px;
+    :global {
+      .alita-capsule {
+        // margin: 0 10px;
+        font-size: 24px;
+      }
+    }
+  }
+}

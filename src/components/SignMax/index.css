@@ -1,0 +1,82 @@
+.signMaxStyles .signMaxmodal {
+  height: 100%;
+  min-height: 100% !important;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+.signMaxStyles .signMaxmodal .adm-modal-content {
+  flex: 1;
+  max-height: max-content;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 51px;
+  overflow-y: hidden;
+}
+.signMaxStyles .signMaxmodal .adm-modal-content .signPreviewArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30%;
+  box-sizing: border-box;
+  justify-content: space-around;
+}
+.signMaxStyles .signMaxmodal .adm-modal-content .signPreviewArea .defaultText {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: 'ZhengKai';
+  background-color: #e7e7e799;
+  border-radius: 0.15rem;
+}
+.signMaxStyles .signMaxmodal .adm-modal-content .signArea {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signMaxStyles .signMaxmodal .adm-modal-content .signArea .signatureBackground {
+  height: 100%;
+  width: 100%;
+  background-color: #e7e7e799;
+  border: 1px solid black;
+}
+.signMaxStyles .signMaxmodal .adm-modal-content .signArea .signatureCanvas {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.signMaxStyles .signMaxmodal .adm-modal-content .singhint {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+.signMaxStyles .adm-center-popup-wrap {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh !important;
+  transform: translate(0, 0);
+}
+.signMaxStyles .adm-center-popup-wrap > div:first-child {
+  height: 100%;
+}
+@font-face {
+  font-family: 'ZhengKai';
+}

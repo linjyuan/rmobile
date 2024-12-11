@@ -1,0 +1,134 @@
+.rmobile-button {
+  --color: var(--rmobile-color-text-light-solid);
+  --text-color: var(--rmobile-color-text);
+  --background-color: var(--rmobile-color-background);
+  --border-radius: 4px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(---rmobile-color-border);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: auto;
+  padding: 7px 12px;
+  margin: 0;
+  font-size: var(--rmobile-font-size-9);
+  line-height: 1.4;
+  text-align: center;
+  border: var(--border-width) var(--border-style) var(--rmobile-border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: opacity ease 0.15s;
+  user-select: none;
+}
+.rmobile-button:focus {
+  outline: none;
+}
+.rmobile-button::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(calc(var(--border-width) * -1), calc(var(--border-width) * -1));
+  width: 100%;
+  height: 100%;
+  background-color: var(--rmobile-color-text-dark-solid);
+  border: var(--border-width) var(--border-style) var(--rmobile-color-text-dark-solid);
+  border-radius: var(--border-radius);
+  opacity: 0;
+  content: ' ';
+  box-sizing: content-box;
+}
+.rmobile-button:active::before {
+  opacity: 0.08;
+}
+.rmobile-button-default.rmobile-button-fill-outline {
+  --background-color: transparent;
+  --border-color: var(--rmobile-color-text);
+}
+.rmobile-button-default.rmobile-button-fill-none {
+  --background-color: transparent;
+  --border-width: 0px;
+}
+.rmobile-button:not(.rmobile-button-default) {
+  --background-color: var(--color);
+  --border-color: var(--color);
+}
+.rmobile-button:not(.rmobile-button-default).rmobile-button-fill-outline {
+  --text-color: var(--color);
+  --background-color: transparent;
+}
+.rmobile-button:not(.rmobile-button-default).rmobile-button-fill-none {
+  --text-color: var(--color);
+  --background-color: transparent;
+  --border-width: 0px;
+}
+.rmobile-button-primary {
+  --text-color: var(--rmobile-color-text-light-solid);
+  --color: var(--rmobile-color-primary);
+  --rmobile-border-color: var(--rmobile-color-primary);
+}
+.rmobile-button-success {
+  --text-color: var(--rmobile-color-text-light-solid);
+  --color: var(--rmobile-color-success);
+  --rmobile-border-color: var(--rmobile-color-success);
+}
+.rmobile-button-danger {
+  --text-color: var(--rmobile-color-text-light-solid);
+  --color: var(--rmobile-color-danger);
+  --rmobile-border-color: var(--rmobile-color-success);
+}
+.rmobile-button-warning {
+  --text-color: var(--rmobile-color-text-light-solid);
+  --color: var(--rmobile-color-warning);
+  --rmobile-border-color: var(--rmobile-color-warning);
+}
+.rmobile-button-block {
+  display: block;
+  width: 100%;
+}
+.rmobile-button-disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+.rmobile-button-disabled:active::before {
+  display: none;
+}
+.rmobile-button-mini {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: var(--adm-font-size-main);
+}
+.rmobile-button-mini.rmobile-button-shape-rounded {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+.rmobile-button-small {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: var(--rmobile-font-size-7);
+}
+.rmobile-button-large {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  font-size: var(--rmobile-font-size-10);
+}
+.rmobile-button-shape-rounded {
+  --border-radius: 1000px;
+}
+.rmobile-button-shape-rectangular {
+  --border-radius: 0;
+}
+.rmobile-button-loading {
+  vertical-align: bottom;
+}
+.rmobile-button-loading-wrapper {
+  display: flex;
+  height: 1.4em;
+  align-items: center;
+  justify-content: center;
+}
+.rmobile-button-loading-wrapper > .adm-loading {
+  opacity: 0.6;
+}
