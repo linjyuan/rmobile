@@ -9,8 +9,8 @@ export interface SignMaxProps {
 export interface CanvasDataMap {
   [key: string]: {
     character: string;
-    imageData: ImageData | undefined;
-    base64: string | undefined;
+    imageData?: ImageData | undefined;
+    base64?: string | undefined;
   };
 }
 

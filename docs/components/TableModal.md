@@ -1,5 +1,5 @@
 ---
-title: UploadView
+title: TableModal
 nav: 
   title: "组件"
   path: /components
@@ -8,7 +8,7 @@ group:
   title: 常用组件
   order: 3
 ---
-# UploadView
+# TableModal
 
 ## 代码演示
 

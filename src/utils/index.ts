@@ -55,18 +55,19 @@ function getRootFontSize() {
 }
 
 function convertRem(value: string) {
-  value = value.replace(/rem/g, '');
-  return +value * getRootFontSize();
+  // eslint-disable-next-line no-param-reassign
+  const newValue = value.replace(/rem/g, '');
+  return +newValue * getRootFontSize();
 }
 
 function convertVw(value: string) {
-  value = value.replace(/vw/g, '');
-  return (+value * window.innerWidth) / 100;
+  const newValue = value.replace(/vw/g, '');
+  return (+newValue * window.innerWidth) / 100;
 }
 
 function convertVh(value: string) {
-  value = value.replace(/vh/g, '');
-  return (+value * window.innerHeight) / 100;
+  const newValue = value.replace(/vh/g, '');
+  return (+newValue * window.innerHeight) / 100;
 }
 export const inBrowser = typeof window !== 'undefined';
 
@@ -105,4 +106,29 @@ export const isPromise = (
     typeof funResult === 'object' &&
     typeof (funResult as any).then === 'function'
   );
+};
+
+/**
+ * 回滚到节点位置
+ * @param param
+ */
+export const innerScrollIntoField = ({
+  parentClass,
+  currentClass,
+}: {
+  parentClass: string;
+  currentClass: string;
+}) => {
+  const parentElement = document.querySelector(parentClass);
+  const targetElement =
+    parentClass && parentElement
+      ? parentElement.querySelector(currentClass)
+      : document.querySelector(currentClass);
+  if (targetElement) {
+    targetElement?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center',
+    });
+  }
 };

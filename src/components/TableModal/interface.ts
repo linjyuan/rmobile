@@ -1,4 +1,5 @@
 import type { IFormItemProps } from '@alitajs/dform';
+import { FooterViewsProps } from '../FooterBtn/PropsType';
 export interface ModalInputCardProps {
   title: string;
   key?: string;
@@ -10,7 +11,7 @@ export interface ModalInputCardProps {
   value?: Record<string, any>[];
   onChange: (value: Record<string, any>[]) => void;
   isNullable?: boolean;
-  customButton?: CustomButtonProps[];
+  customButton?: FooterViewsProps['list'];
   // 取消方法
   onCancel?: (
     value: Record<string, any>,
@@ -24,14 +25,21 @@ export interface ModalInputCardProps {
   subTitle?: string | React.ReactNode;
   extra?: (formsData: IFormItemProps[], index: number) => React.ReactNode;
 }
-
-export interface CustomButtonProps {
-  onClick: () => void;
-  text: string;
-  size?: 'md' | 'lg' | 'sm';
-  type?: 'default' | 'primary';
-  disabled?: boolean;
+export interface TableModalRef {
+  validate: () => Promise<unknown>;
+  getValue: () => FormsValuesArrItemData[];
+  add: () => void;
+  remove: (removeIndex: number) => void;
+  relativeFieldset: (fieldset: Array<ModalInputCardProps>) => void;
 }
+
+// export interface CustomButtonProps {
+//   onClick: () => void;
+//   text: string;
+//   size?: 'md' | 'lg' | 'sm';
+//   type?: 'default' | 'primary';
+//   disabled?: boolean;
+// }
 
 export interface FormsValuesArrItemData {
   // id: number;

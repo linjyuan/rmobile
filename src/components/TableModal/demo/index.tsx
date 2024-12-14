@@ -1,5 +1,6 @@
 import IconTrashcan from '@/assets/trashcan.png';
-import { IFormItemProps, TableModal } from 'antd-mobile-max';
+import type { IFormItemProps } from '@alitajs/dform';
+import { TableModal } from 'Rmobile';
 import React, { FC, useState } from 'react';
 import './index.less';
 

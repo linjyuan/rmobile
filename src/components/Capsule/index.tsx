@@ -10,7 +10,7 @@ const Capsule: FC<CapsuleProps> = (props) => {
     console.log('finish');
   }, []);
 
-  return <div style={style}>sssss</div>;
+  return <div style={style}></div>;
 };
 
 export default Capsule;

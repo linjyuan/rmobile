@@ -28,9 +28,9 @@ const SignMax: FC<SignMaxProps> = (props) => {
   } = props;
 
   // 签字画布
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null!);
   // 获取到画笔
-  const contextRef = useRef<CanvasRenderingContext2D>(null);
+  const contextRef = useRef<CanvasRenderingContext2D>(null!);
 
   const [isWriting, setIsWriting] = useState<boolean>(false);
   // const [endPoint, setEndPoint] = useState<Point>({ x: 0, y: 0 });
@@ -42,10 +42,6 @@ const SignMax: FC<SignMaxProps> = (props) => {
   // const [emptyCanvasDataUrl, setEmptyCanvasDataUrl] = useState<string>('');
   const forceUpdate = useForceUpdate();
   // const [lastLineWidth, setLastLineWidth] = useState(0);
-  // 开始的X轴
-  let startX: number = 0;
-  // 结束的Y轴
-  let startY: number = 0;
 
   useEffect(() => {
     if (visible) {
@@ -72,18 +68,16 @@ const SignMax: FC<SignMaxProps> = (props) => {
   useEffect(() => {
     const characterKeys = Object.keys(characterObj);
     if (!characterKeys.length) return;
-
-    const initCanvasData = characterKeys.reduce<CanvasDataMap>(
-      (acc, characterIndex) => {
+    const initCanvasData: Array<CanvasDataMap> =
+      characterKeys.reduce<CanvasDataMap>((acc, characterIndex) => {
         acc[characterIndex] = {
           character: characterObj[characterIndex],
           imageData: undefined,
           base64: undefined,
         };
         return acc;
-      },
-      {},
-    );
+      }, {});
+    console.log({ initCanvasData });
     setCanvasData(initCanvasData);
   }, [JSON.stringify(characterObj)]);
 
@@ -239,14 +233,11 @@ const SignMax: FC<SignMaxProps> = (props) => {
 
   const onmousedown = function (e: any) {
     e.preventDefault();
-    startX = e.offsetX;
-    startY = e.offsetY;
     writeStart(getCoordinate(e.clientX, e.clientY));
   };
 
   const onmousemove = (e: any) => {
     e.preventDefault();
-    console.log({ e });
     if (isWriting) {
       writing(getCoordinate(e.clientX, e.clientY));
     }
@@ -294,7 +285,8 @@ const SignMax: FC<SignMaxProps> = (props) => {
       const textContainerWidth = (window.innerWidth / len) * 0.8;
 
       return characterKeys.map((characterIndex, index) => {
-        const { imageData, base64 } = canvasData[characterIndex] || {};
+        const { imageData, base64 } =
+          canvasData[parseInt(characterIndex, 10)] || {};
         const character = characterObj[characterIndex];
         return (
           <div
@@ -451,9 +443,9 @@ const SignMax: FC<SignMaxProps> = (props) => {
 
   const onSubmit1 = () => {
     const imageDatas = Object.keys(characterObj).map(
-      (characterIndex) => canvasData[characterIndex].imageData!,
+      (characterIndex) => canvasData[parseInt(characterIndex, 10)].imageData!,
     );
-    const signResult: string = mergeImageDatas(imageDatas);
+    const signResult = mergeImageDatas(imageDatas);
     if (onSubmit) onSubmit(signResult, canvasData);
   };
 
