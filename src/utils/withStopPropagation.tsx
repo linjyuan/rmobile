@@ -11,11 +11,13 @@ export default function withStopPropagation(
 ) {
   const props: Record<string, any> = { ...element.props };
   for (const key of events) {
-    const eventName = PropagationEventMap[key];
-    props[eventName] = function (e: Event) {
-      e.stopPropagation();
-      element.props[eventName]?.(e);
-    };
+    if (PropagationEventMap[key]) {
+      const eventName = PropagationEventMap[key];
+      props[eventName] = function (e: Event) {
+        e.stopPropagation();
+        element.props[eventName]?.(e);
+      };
+    }
   }
   return React.cloneElement(element, props);
 }

@@ -8,7 +8,7 @@ const Page = () => {
     <div>
       <SignMax
         visible={visible}
-        onSubmit={(file: string, base64: CanvasDataMap) => {
+        onSubmit={(file: string, base64: CanvasDataMap[]) => {
           console.log(base64);
           setImgSrc(file);
           setVisible(false);
@@ -17,6 +17,7 @@ const Page = () => {
         // signName={'企业家'}
         onClose={() => setVisible(false)}
       ></SignMax>
+      <img src={imgSrc} alt="" />
     </div>
   );
 };

@@ -35,7 +35,7 @@ const CardView: FC<CardViewProps> = ({
   flexRow,
   children,
   rightExtra,
-  urgeBtn,
+  // urgeBtn,
   list = [],
   listCoverStyle = {},
   onClick,
@@ -45,7 +45,7 @@ const CardView: FC<CardViewProps> = ({
   justifyFooter = 'flex-end',
   footerStyles = {},
   swipeDisabled = false,
-  swipeActions = undefined,
+  swipeActions = [],
   collapse,
   collapseBackFun,
 }) => {
@@ -209,7 +209,7 @@ const CardView: FC<CardViewProps> = ({
       onClick={(e) => onClick?.(e)}
     >
       {swipeActions ? (
-        <SwipeAction disabled={swipeDisabled} autoClose right={swipeActions}>
+        <SwipeAction rightActions={swipeDisabled ? [] : swipeActions}>
           {renderChild()}
         </SwipeAction>
       ) : (

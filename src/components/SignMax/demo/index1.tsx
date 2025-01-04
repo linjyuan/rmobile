@@ -18,7 +18,7 @@ const Page = () => {
       {imgSrc && <Image src={imgSrc}></Image>}
       <SignMax
         visible={visible}
-        onSubmit={(file: string, base64: CanvasDataMap) => {
+        onSubmit={(file: string, base64: CanvasDataMap[]) => {
           console.log(base64);
           setImgSrc(file);
           setVisible(false);

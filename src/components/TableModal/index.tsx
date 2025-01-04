@@ -7,7 +7,6 @@ import type {
 } from '@alitajs/dform';
 
 import editIcon from '@/assets/editIcon.png';
-import FooterBtn from '@/components/FooterBtn';
 import DynamicForm, { useForm } from '@alitajs/dform';
 import { Modal, Toast } from 'antd-mobile';
 import React, {
@@ -17,6 +16,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import Button from '../Button';
 import './index.less';
 import {
   FormsValuesArrItemData,
@@ -67,14 +67,12 @@ const TableModal = forwardRef<TableModalRef, ModalInputCardProps>(
       }
       // 设置表单值
       if (val?.length === 0) {
-        val?.push(() => {
-          let emptyValue: Record<string, any> = {};
-          data.forEach((it) => {
-            if (it?.fieldProps) emptyValue[it?.fieldProps] = undefined;
-            if (it?.fieldProps2) emptyValue[it?.fieldProps2] = undefined;
-          });
-          return emptyValue;
+        let emptyValue: Record<string, any> = {};
+        data.forEach((it) => {
+          if (it?.fieldProps) emptyValue[it?.fieldProps] = undefined;
+          if (it?.fieldProps2) emptyValue[it?.fieldProps2] = undefined;
         });
+        val.push(emptyValue);
       }
       setFormsValuesArr(val);
       if (val && Array.isArray(val) && val.length > 0 && Array.isArray(data)) {
@@ -198,9 +196,9 @@ const TableModal = forwardRef<TableModalRef, ModalInputCardProps>(
               width: '100%',
             }}
           >
-            {Array.isArray(customButton) && customButton.length > 0 && (
-              <FooterBtn {...customButton}></FooterBtn>
-            )}
+            {customButton.map((i, index) => {
+              return <Button {...i} key={index}></Button>;
+            })}
           </div>
         </div>
         <Modal

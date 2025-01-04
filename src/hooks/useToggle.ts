@@ -10,7 +10,7 @@ const useToggle = (
   }, [initialState]);
 
   const toggleValue = useCallback(() => setValue((prev) => !prev), []);
-  const toggleSetValue = useCallback((val) => setValue(val), []);
+  const toggleSetValue = useCallback((val: boolean) => setValue(val), []);
 
   return [value, toggleValue, toggleSetValue];
 };

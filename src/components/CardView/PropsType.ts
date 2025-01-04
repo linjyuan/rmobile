@@ -139,8 +139,17 @@ export interface CardViewProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   swipeActions?:
     | {
+        key: string | number;
         text: string;
-        onPress?: (() => void) | undefined;
+        onClick?: (() => void) | undefined;
+        color?:
+          | 'light'
+          | 'weak'
+          | 'primary'
+          | 'success'
+          | 'warning'
+          | 'danger'
+          | string;
         style?: React.CSSProperties | undefined;
         className?: string | undefined;
       }[]

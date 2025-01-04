@@ -1,7 +1,7 @@
-import IconTrashcan from '@/assets/trashcan.png';
 import type { IFormItemProps } from '@alitajs/dform';
 import { TableModal } from 'Rmobile';
 import React, { FC, useState } from 'react';
+import IconTrashcan from '../../../assets/trashcan.png';
 import './index.less';
 
 const Page: FC = () => {
@@ -66,19 +66,17 @@ const Page: FC = () => {
         customButton={[
           {
             onClick: () => {
-              setValue((item) => {
-                return item.concat(() => {
-                  let valJson: Record<string, any> = {};
-                  data.forEach((i: IFormItemProps) => {
-                    if (i?.fileProps) valJson[i?.fileProps] = undefined;
-                  });
-                  return valJson;
+              setValue((dataList) => {
+                let valJson: Record<string, any> = {};
+                data.forEach((i: IFormItemProps) => {
+                  if (i.fieldProps) valJson[i.fieldProps] = undefined;
                 });
+                return dataList.concat(valJson);
               });
             },
-            text: '增加',
-            size: 'md',
-            type: 'default',
+            children: '增加',
+            size: 'mini',
+            color: 'primary',
             disabled: false,
           },
         ]}

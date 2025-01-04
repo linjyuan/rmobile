@@ -68,15 +68,19 @@ const SignMax: FC<SignMaxProps> = (props) => {
   useEffect(() => {
     const characterKeys = Object.keys(characterObj);
     if (!characterKeys.length) return;
-    const initCanvasData: Array<CanvasDataMap> =
-      characterKeys.reduce<CanvasDataMap>((acc, characterIndex) => {
-        acc[characterIndex] = {
-          character: characterObj[characterIndex],
-          imageData: undefined,
-          base64: undefined,
-        };
-        return acc;
-      }, {});
+    const initCanvasData: CanvasDataMap[] = characterKeys.map((item) => {
+      // acc[characterIndex] = {
+      //   character: characterObj[characterIndex],
+      //   imageData: undefined,
+      //   base64: undefined,
+      // };
+      // return acc;
+      return {
+        character: characterObj[item],
+        imageData: undefined,
+        base64: undefined,
+      };
+    });
     console.log({ initCanvasData });
     setCanvasData(initCanvasData);
   }, [JSON.stringify(characterObj)]);
@@ -314,7 +318,6 @@ const SignMax: FC<SignMaxProps> = (props) => {
         );
       });
     };
-  // , [JSON.stringify(characterArr), JSON.stringify(canvasData)]);
 
   const isCanvasBlank = (imageData: ImageData) =>
     !imageData.data.some((channel) => channel !== 0);
@@ -424,28 +427,28 @@ const SignMax: FC<SignMaxProps> = (props) => {
     }
   };
 
-  const mergeImageDatas = (list: Array<ImageData>) => {
+  const mergeImageDatas = (list: Array<ImageData>): string => {
     const signatureCanvas = canvasRef.current;
-    if (!signatureCanvas) return;
+    if (!signatureCanvas) return '';
 
     const canvas = document.createElement('canvas');
     canvas.width = signatureCanvas.width * list.length;
     canvas.height = signatureCanvas.height;
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) return '';
 
     list.forEach((item, index) => {
       ctx.putImageData(item, index * signatureCanvas.width, 0);
     });
 
-    return canvas.toDataURL('image/png', 1.0);
+    return canvas.toDataURL('image/png', 1.0) as string;
   };
 
   const onSubmit1 = () => {
     const imageDatas = Object.keys(characterObj).map(
       (characterIndex) => canvasData[parseInt(characterIndex, 10)].imageData!,
     );
-    const signResult = mergeImageDatas(imageDatas);
+    const signResult: string = mergeImageDatas(imageDatas);
     if (onSubmit) onSubmit(signResult, canvasData);
   };
 
@@ -515,27 +518,40 @@ const SignMax: FC<SignMaxProps> = (props) => {
                     hidden: fontIndex !== signName.length - 1,
                     onPress: () => {
                       onNextStep();
-                      // 默认可以提交
-                      let isSubmit = true;
-                      for (const key in canvasData) {
+                      setTimeout(() => {
                         if (
-                          Object.prototype.hasOwnProperty.call(canvasData, key)
+                          canvasData.some((it) => !it?.base64 || !it?.imageData)
                         ) {
-                          if (!canvasData[Number(key)].base64) {
-                            isSubmit = false;
-                          }
-                        }
-                      }
-                      if (isSubmit) {
-                        setTimeout(() => {
+                          Toast.show({
+                            icon: 'fail',
+                            content: '请先签名完整！',
+                          });
+                        } else {
                           onSubmit1();
-                        }, 200);
-                      } else {
-                        Toast.show({
-                          icon: 'fail',
-                          content: '请先签名完整！',
-                        });
-                      }
+                        }
+                      }, 200);
+
+                      // 默认可以提交
+                      // let isSubmit = true;
+                      // for (const key in canvasData) {
+                      //   if (
+                      //     Object.prototype.hasOwnProperty.call(canvasData, key)
+                      //   ) {
+                      //     if (!canvasData[Number(key)].base64) {
+                      //       isSubmit = false;
+                      //     }
+                      //   }
+                      // }
+                      // if (isSubmit) {
+                      //   setTimeout(() => {
+                      //     onSubmit1();
+                      //   }, 200);
+                      // } else {
+                      //   Toast.show({
+                      //     icon: 'fail',
+                      //     content: '请先签名完整！',
+                      //   });
+                      // }
                     },
                   },
                 ]}

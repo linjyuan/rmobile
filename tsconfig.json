@@ -17,7 +17,8 @@
         ".dumi/tmp/*"
       ],
       "Rmobile": [
-        "src"
+        "src",
+        "src/index.ts"
       ],
       "Rmobile/*": [
         "src/*",
@@ -26,8 +27,10 @@
     }
   },
   "include": [
+    "typings.d.ts",
     ".dumirc.ts",
     "src/**/*",
+    "./src"
   ],
   "exclude": [
     "node_modules",

@@ -1,5 +1,5 @@
 import type { IFormItemProps } from '@alitajs/dform';
-import { FooterViewsProps } from '../FooterBtn/PropsType';
+import { ButtonProps } from '../Button/PropsType';
 export interface ModalInputCardProps {
   title: string;
   key?: string;
@@ -11,7 +11,8 @@ export interface ModalInputCardProps {
   value?: Record<string, any>[];
   onChange: (value: Record<string, any>[]) => void;
   isNullable?: boolean;
-  customButton?: FooterViewsProps['list'];
+  // customButton?: FooterViewsProps['list'];
+  customButton?: ButtonProps[];
   // 取消方法
   onCancel?: (
     value: Record<string, any>,
