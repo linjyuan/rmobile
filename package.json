@@ -1,5 +1,5 @@
 {
-  "name": "Rmobile",
+  "name": "rmobile",
   "version": "1.0.1",
   "description": "基本react的移动端开源组件库",
   "module": "dist/index.js",
@@ -19,6 +19,7 @@
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepublishOnly": "father doctor && npm run build"
   },
+  "private": false,
   "slideEffects": false,
   "authors": [
     "1134809127@qq.com"
