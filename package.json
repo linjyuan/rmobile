@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "基本react的移动端开源组件库",
   "module": "dist/index.js",
+  "type": "module",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "npm run dev",

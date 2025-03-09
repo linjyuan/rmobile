@@ -7,7 +7,7 @@ export enum PropagationEventMap {
 
 export default function withStopPropagation(
   element: ReactElement,
-  events: string[] = ['click'],
+  events:Array<keyof typeof PropagationEventMap> = ['click']
 ) {
   const props: Record<string, any> = { ...element.props };
   for (const key of events) {
