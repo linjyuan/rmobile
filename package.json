@@ -19,6 +19,7 @@
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepublishOnly": "father doctor && npm run build"
   },
+  "slideEffects": false,
   "authors": [
     "1134809127@qq.com"
   ],
